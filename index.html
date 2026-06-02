@@ -103,19 +103,15 @@
     font-size: 1.25rem; line-height: 1.8;
     color: var(--ink-mid); max-width: 640px;
     border-left: 2px solid var(--gold);
-    padding-left: 2rem;
-    font-style: italic;
+    padding-left: 2rem; font-style: italic;
   }
   .servicios-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2px; margin-top: 3rem;
-    border: 0.5px solid var(--border);
+    gap: 2px; margin-top: 3rem; border: 0.5px solid var(--border);
   }
   .servicio-card {
-    padding: 2.5rem 2rem;
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    transition: background 0.2s;
+    padding: 2.5rem 2rem; background: var(--cream);
+    border: 0.5px solid var(--border); transition: background 0.2s;
   }
   .servicio-card:hover { background: var(--cream-dark); }
   .servicio-num {
@@ -145,8 +141,8 @@
     text-transform: uppercase; color: var(--ink-mid);
   }
   .carrusel-wrap {
-    overflow: hidden;
-    padding: 2.5rem 0;
+    overflow: hidden; padding: 2.5rem 0;
+    background: var(--cream-dark);
     border-top: 0.5px solid var(--border);
     border-bottom: 0.5px solid var(--border);
   }
@@ -159,7 +155,7 @@
   .carrusel-item {
     font-family: 'Playfair Display', serif;
     font-size: 13px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--ink-light);
+    text-transform: uppercase; color: var(--ink-mid);
     white-space: nowrap; padding: 0 1rem;
   }
   @keyframes scroll-logos {
@@ -196,10 +192,7 @@
     display: flex; align-items: center; justify-content: space-between;
     border-top: 0.5px solid var(--border); padding-top: 1rem;
   }
-  .articulo-source {
-    font-size: 11px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--ink-light);
-  }
+  .articulo-source { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); }
   .articulo-arrow { font-size: 1.2rem; color: var(--ink-light); transition: color 0.2s; }
   .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
   .contact-link {
