@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Zappe — Gobernanza Familiar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #4a4640;
+    --ink-light: #8a857e;
+    --cream: #f7f4ef;
+    --cream-dark: #ede9e2;
+    --gold: #9a7c3f;
+    --gold-light: #c4a96a;
+    --border: rgba(26,24,20,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--cream);
+    border-bottom: 0.5px solid var(--border);
+    padding: 1rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px; letter-spacing: 0.06em;
+    color: var(--ink-mid); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 3rem 5rem;
+    max-width: 860px; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::after {
+    content: ''; display: block; width: 48px; height: 0.5px; background: var(--gold);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 400; line-height: 1.15;
+    color: var(--ink); margin-bottom: 2rem;
+    max-width: 720px;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--ink-mid);
+    max-width: 520px; margin-bottom: 3rem;
+    font-style: italic;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'EB Garamond', serif;
+    font-size: 15px; letter-spacing: 0.1em;
+    text-decoration: none; text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .divider {
+    width: 100%; max-width: 860px; margin: 0 auto;
+    height: 0.5px; background: var(--border);
+  }
+  section { padding: 6rem 3rem; max-width: 860px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 3rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400; line-height: 1.2;
+    margin-bottom: 1.5rem; color: var(--ink);
+  }
+  .problema-text {
+    font-size: 1.25rem; line-height: 1.8;
+    color: var(--ink-mid); max-width: 640px;
+    border-left: 2px solid var(--gold);
+    padding-left: 2rem;
+    font-style: italic;
+  }
+  .servicios-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px; margin-top: 3rem;
+    border: 0.5px solid var(--border);
+  }
+  .servicio-card {
+    padding: 2.5rem 2rem;
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    transition: background 0.2s;
+  }
+  .servicio-card:hover { background: var(--cream-dark); }
+  .servicio-num {
+    font-size: 11px; letter-spacing: 0.2em; color: var(--gold-light);
+    margin-bottom: 1.2rem; display: block;
+  }
+  .servicio-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 500;
+    margin-bottom: 0.8rem; line-height: 1.3;
+  }
+  .servicio-card p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.65; }
+  .tray-nums { display: flex; gap: 4rem; margin: 3rem 0; flex-wrap: wrap; }
+  .tray-num { flex: 1; min-width: 140px; }
+  .tray-num .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; font-weight: 400; color: var(--ink); line-height: 1;
+  }
+  .tray-num .big span { font-size: 2rem; color: var(--gold); }
+  .tray-num .label { font-size: 13px; letter-spacing: 0.06em; color: var(--ink-light); margin-top: 0.4rem; }
+  .empresas { display: flex; flex-wrap: wrap; border-top: 0.5px solid var(--border); margin-top: 3rem; }
+  .empresa {
+    padding: 1.2rem 2rem;
+    border-right: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink-mid);
+  }
+
+  /* ARTICULOS */
+  .articulos-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px; margin-top: 3rem;
+  }
+  .articulo-card {
+    padding: 2.5rem 2rem;
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    text-decoration: none; color: var(--ink);
+    display: flex; flex-direction: column;
+    transition: background 0.2s;
+  }
+  .articulo-card:hover { background: var(--cream-dark); }
+  .articulo-card:hover .articulo-arrow { color: var(--gold); }
+  .articulo-fecha {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 1rem;
+  }
+  .articulo-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 400; line-height: 1.35;
+    margin-bottom: 1rem; color: var(--ink);
+  }
+  .articulo-resumen {
+    font-size: 0.92rem; color: var(--ink-mid);
+    line-height: 1.65; flex: 1;
+    font-style: italic;
+  }
+  .articulo-footer {
+    margin-top: 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 0.5px solid var(--border); padding-top: 1rem;
+  }
+  .articulo-source {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .articulo-arrow {
+    font-size: 1.2rem; color: var(--ink-light);
+    transition: color 0.2s;
+  }
+
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 0; border-bottom: 0.5px solid var(--border);
+    text-decoration: none; color: var(--ink); font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--gold); }
+  .contact-link .cl-label {
+    font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--ink-light); min-width: 80px;
+  }
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: var(--ink-light); letter-spacing: 0.05em;
+  }
+  footer span { font-family: 'Playfair Display', serif; }
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section, .hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .tray-nums { gap: 2rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Alejandro Zappe</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#trayectoria">Trayectoria</a></li>
+    <li><a href="#articulos">Artículos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Gobierno Corporativo · Empresas Familiares</div>
+  <h1>Los directorios que<br>funcionan <em>se diseñan.</em><br>No ocurren solos.</h1>
+  <p class="hero-sub">Ayudo a empresas familiares a construir esquemas de gobierno que protegen el patrimonio, ordenan las decisiones y generan valor duradero.</p>
+  <a href="#contacto" class="btn-primary">Conversemos →</a>
+</div>
+
+<div class="divider"></div>
+
+<section id="problema">
+  <div class="section-label">El desafío</div>
+  <p class="problema-text">Las empresas familiares que crecen enfrentan un mismo nudo: decisiones que mezclan familia, propiedad y gestión. Sin un esquema de gobierno claro, el directorio pierde foco — y la empresa, valor.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="servicios">
+  <div class="section-label">Cómo trabajo</div>
+  <h2>Tres focos, un objetivo:<br>aumentar el valor de tu empresa.</h2>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <span class="servicio-num">01</span>
+      <h3>Diseño del esquema de gobierno</h3>
+      <p>Estructuro el directorio adaptado a la etapa y visión de la empresa familiar, diferenciando los roles de familia, propiedad y gestión.</p>
+    </div>
+    <div class="servicio-card">
+      <span class="servicio-num">02</span>
+      <h3>Dinamización del directorio</h3>
+      <p>Acompaño el funcionamiento del board para que sea un activo real de la organización, no una formalidad en el organigrama.</p>
+    </div>
+    <div class="servicio-card">
+      <span class="servicio-num">03</span>
+      <h3>Revisión del modelo de negocio</h3>
+      <p>Facilito procesos de innovación estratégica usando metodología CANVAS, con foco en la sustentabilidad del negocio familiar.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="trayectoria">
+  <div class="section-label">Por qué yo</div>
+  <h2>Más de tres décadas en la primera línea de las empresas.</h2>
+  <div class="tray-nums">
+    <div class="tray-num">
+      <div class="big">20<span>+</span></div>
+      <div class="label">años en cargos ejecutivos regionales</div>
+    </div>
+    <div class="tray-num">
+      <div class="big">12<span>+</span></div>
+      <div class="label">años como consultor independiente</div>
+    </div>
+    <div class="tray-num">
+      <div class="big">6<span>+</span></div>
+      <div class="label">años como Expositor Vistage Argentina</div>
+    </div>
+  </div>
+  <div class="empresas">
+    <div class="empresa">Techint</div>
+    <div class="empresa">Cencosud</div>
+    <div class="empresa">Molinos Río de la Plata</div>
+    <div class="empresa">Mondelez</div>
+    <div class="empresa">ABMauri</div>
+    <div class="empresa">Kraft Foods</div>
+    <div class="empresa">Vistage Argentina</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ARTICULOS -->
+<section id="articulos">
+  <div class="section-label">Artículos</div>
+  <h2>Reflexiones sobre gobierno<br>corporativo y empresa familiar.</h2>
+  <div class="articulos-grid">
+
+    <!-- ARTICULO 1 -->
+    <a class="articulo-card" href="https://www.linkedin.com/posts/alejandrozappe_%F0%9D%97%A3%F0%9D%97%BC%F0%9D%97%BF-%F0%9D%97%BE%F0%9D%98%82%C3%A9-%F0%9D%97%AE-%F0%9D%98%83%F0%9D%97%B2%F0%9D%97%B0%F0%9D%97%B2%F0%9D%98%80-%F0%9D%97%B2%F0%9D%97%B9-%F0%9D%97%BA%F0%9D%97%B2%F0%9D%97%B7%F0%9D%97%BC%F0%9D%97%BF-activity-7467179202924933120-occj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD0bVcB8s1dXQW-bmGlfh_lE2EPAa2NqeM" target="_blank">
+      <div class="articulo-fecha">2025</div>
+      <h3>Por qué a veces el mejor de los nuestros es uno de afuera</h3>
+      <p class="articulo-resumen">El caso de LEGO demuestra que, a veces, la mejor forma de salvar el legado de una empresa familiar es incorporar una mirada externa; un líder de afuera aporta la objetividad necesaria para hacer las preguntas incómodas y anticipar el futuro.</p>
+      <div class="articulo-footer">
+        <span class="articulo-source">LinkedIn</span>
+        <span class="articulo-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- AGREGAR MÁS ARTÍCULOS AQUÍ con el mismo bloque <a class="articulo-card"> -->
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contacto">
+  <div class="contact-wrap">
+    <div class="contact-text">
+      <div class="section-label">Contacto</div>
+      <h2>¿Querés explorar cómo mejorar el gobierno de tu empresa?</h2>
+      <p style="color: var(--ink-mid); font-style: italic;">Trabajo por referidos. Si llegaste hasta acá, probablemente alguien ya nos presentó. Hablemos.</p>
+      <div class="contact-links" style="margin-top: 2rem;">
+        <a href="mailto:alezappe@yahoo.com" class="contact-link">
+          <span class="cl-label">Email</span>
+          alezappe@yahoo.com
+        </a>
+        <a href="https://wa.me/5491154842389" class="contact-link">
+          <span class="cl-label">WhatsApp</span>
+          +54 9 11 5484 2389
+        </a>
+        <a href="https://www.linkedin.com/in/alejandrozappe" target="_blank" class="contact-link">
+          <span class="cl-label">LinkedIn</span>
+          alejandrozappe
+        </a>
+      </div>
+    </div>
+    <div>
+      <blockquote style="border-left: 2px solid var(--gold); padding-left: 2rem; margin-top: 4rem;">
+        <p style="font-style: italic; font-size: 1.1rem; color: var(--ink-mid); line-height: 1.8;">"Soy un convencido del poder de los grupos heterogéneos para resolver los problemas del mañana."</p>
+        <footer style="margin-top: 1rem; font-size: 13px; letter-spacing: 0.08em; color: var(--ink-light); border: none; padding: 0; max-width: none;">— Alejandro Zappe</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Alejandro Zappe</span>
+  <span>gobernanzafamiliar.com</span>
+</footer>
+
+</body>
+</html>
